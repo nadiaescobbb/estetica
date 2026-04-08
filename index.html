@@ -1,1425 +1,1375 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Estética Editorial · Cuidado Consciente</title>
+<title>Clínica Resistencia — Medicina Estética</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
+:root {
+  --crema: #FAF7F2;
+  --crema-dark: #F0EBE3;
+  --arena: #C4A882;
+  --arena-light: #E8D8C0;
+  --terracota: #7D4232;
+  --terracota-dark: #5C2E20;
+  --terracota-light: #A85C47;
+  --carbon: #1A1A18;
+  --carbon-60: rgba(26,26,24,0.6);
+  --carbon-30: rgba(26,26,24,0.3);
+  --carbon-10: rgba(26,26,24,0.08);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper:    #faf8f3;
-  --paper-2:  #f2efe8;
-  --paper-3:  #e8e4db;
-  --sage:     #8a9e88;
-  --sage-dim: #6b7d6a;
-  --gold:     #b89a5e;
-  --gold-dim: #a08448;
-  --slate:    #3a3d38;
-  --slate-mid:#6b6e66;
-  --ink:      #1a1c18;
-  --white:    #ffffff;
-}
-
-html { -webkit-font-smoothing: antialiased; }
+html { font-size: 16px; }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: 'Jost', sans-serif;
+  font-family: var(--sans);
+  background: var(--crema);
+  color: var(--carbon);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ── GRAIN ── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.025;
-  pointer-events: none;
-  z-index: 900;
-}
-
-/* ────────── NAV ────────── */
+/* ─── NAV ─── */
 nav {
   position: fixed;
-  top: 0; width: 100%;
+  top: 0; left: 0; right: 0;
   z-index: 100;
-  height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 56px;
-  background: rgba(250,248,243,0.82);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(232,228,219,0.6);
-  transition: box-shadow 0.4s;
+  padding: 1.25rem 3rem;
+  background: rgba(250,247,242,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--carbon-10);
+  transition: padding 0.3s ease;
 }
 
-nav.scrolled { box-shadow: 0 2px 32px rgba(26,28,24,0.07); }
-
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.15rem;
-  letter-spacing: 0.06em;
-  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--terracota-dark);
+  letter-spacing: 0.02em;
   text-decoration: none;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 2.5rem;
   list-style: none;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .nav-links a {
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--slate-mid);
+  color: var(--carbon);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.25s;
+  opacity: 0.65;
+  transition: opacity 0.2s;
 }
-
-.nav-links a:hover { color: var(--gold-dim); }
+.nav-links a:hover { opacity: 1; }
 
 .nav-cta {
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-weight: 600;
-  color: var(--ink);
+  color: var(--crema);
+  background: var(--terracota);
+  border: none;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
   text-decoration: none;
-  padding: 10px 22px;
-  border: 1px solid rgba(26,28,24,0.25);
-  transition: all 0.3s;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.nav-cta:hover { background: var(--terracota-dark); }
+
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--carbon);
+  transition: transform 0.3s;
 }
 
-.nav-cta:hover { background: var(--ink); color: var(--paper); }
-
-/* ────────── HERO ────────── */
+/* ─── HERO ─── */
 .hero {
-  min-height: 100dvh;
-  padding-top: 68px;
+  min-height: 100svh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
+  padding-top: 5rem;
 }
 
-/* Línea diagonal decorativa */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 68px;
-  left: calc(50% + 60px);
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent 5%, var(--paper-3) 30%, var(--paper-3) 70%, transparent);
-  pointer-events: none;
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 4rem 6rem 5rem;
+  position: relative;
   z-index: 2;
 }
 
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 80px 72px 80px 80px;
-  position: relative;
-  z-index: 3;
-  background: var(--paper);
-}
-
-/* Número de volumen estilo revista */
-.hero-vol {
-  position: absolute;
-  top: 100px;
-  left: 80px;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--slate-mid);
-  opacity: 0.4;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.hero-vol::before {
-  content: '';
-  width: 24px; height: 1px;
-  background: currentColor;
-}
-
 .hero-eyebrow {
-  font-size: 0.62rem;
-  letter-spacing: 0.3em;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 28px;
+  color: var(--arena);
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1rem;
 }
-
 .hero-eyebrow::before {
   content: '';
-  width: 20px; height: 1px;
-  background: var(--gold);
-  opacity: 0.6;
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--arena);
 }
 
-.hero-h1 {
-  font-family: 'Cormorant Garamond', serif;
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
   font-weight: 300;
-  font-size: clamp(3.2rem, 5vw, 5.8rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: 32px;
+  line-height: 1.08;
+  color: var(--terracota-dark);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
 }
 
-.hero-h1 em {
+.hero-title em {
   font-style: italic;
-  color: var(--sage-dim);
-  font-weight: 300;
+  color: var(--terracota);
 }
 
-.hero-desc {
-  font-size: 0.92rem;
-  line-height: 1.8;
-  color: var(--slate-mid);
+.hero-sub {
+  font-size: 1rem;
   font-weight: 300;
-  max-width: 400px;
-  margin-bottom: 56px;
+  line-height: 1.75;
+  color: var(--carbon-60);
+  max-width: 28rem;
+  margin-bottom: 3rem;
 }
 
-.hero-btns {
+.hero-actions {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--ink);
-  color: var(--paper);
-  text-decoration: none;
-  padding: 16px 32px;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  transition: all 0.35s cubic-bezier(0.23,1,0.32,1);
-}
-
-.btn-primary:hover { background: var(--slate); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(26,28,24,0.18); }
-
-.btn-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #25D366;
-  color: white;
-  text-decoration: none;
-  padding: 16px 32px;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  transition: all 0.35s;
-}
-
-.btn-wa:hover { background: #1fb854; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,0.2); }
-.btn-wa svg { width: 15px; height: 15px; }
-
-/* Stats bajo hero */
-.hero-stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 64px;
-  padding-top: 40px;
-  border-top: 1px solid var(--paper-3);
-}
-
-.hero-stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 2.6rem;
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.hero-stat-label {
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--slate-mid);
+  font-family: var(--sans);
+  font-size: 0.8rem;
   font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--crema);
+  background: var(--terracota);
+  padding: 1rem 2.25rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--terracota-dark); }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  background: transparent;
+  border: 1px solid var(--arena-light);
+  padding: 1rem 2.25rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover {
+  border-color: var(--terracota);
+  background: rgba(125,66,50,0.04);
 }
 
-/* Foto hero derecha */
-.hero-right {
+.hero-img-wrap {
   position: relative;
   overflow: hidden;
-  background: var(--paper-2);
 }
 
-.hero-right img {
+.hero-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  filter: grayscale(0.15) contrast(1.05) brightness(0.97);
-  transition: transform 1.2s cubic-bezier(0.23,1,0.32,1);
+  display: block;
+  filter: saturate(0.85) contrast(1.05);
 }
 
-.hero-right:hover img { transform: scale(1.03); }
-
-.hero-right-overlay {
+.hero-badge {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(250,248,243,0.2) 0%, transparent 40%),
-              linear-gradient(to top, rgba(26,28,24,0.12) 0%, transparent 50%);
-  pointer-events: none;
+  bottom: 3.5rem;
+  left: -2rem;
+  background: var(--crema);
+  padding: 1.5rem 1.75rem;
+  max-width: 16rem;
+  border-left: 3px solid var(--terracota);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+  z-index: 5;
 }
 
-/* Tarjeta flotante */
-.hero-float {
-  position: absolute;
-  bottom: 48px;
-  left: -28px;
-  background: var(--paper);
-  border: 1px solid var(--paper-3);
-  padding: 24px 28px;
-  box-shadow: 0 16px 48px rgba(26,28,24,0.12);
-  max-width: 240px;
+.hero-badge-stars {
+  color: var(--arena);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.6rem;
 }
 
-.hero-float-num {
-  font-family: 'Cormorant Garamond', serif;
+.hero-badge-quote {
+  font-family: var(--serif);
+  font-size: 0.95rem;
   font-style: italic;
-  font-size: 2rem;
   font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 4px;
+  line-height: 1.5;
+  color: var(--terracota-dark);
+  margin-bottom: 0.6rem;
 }
 
-.hero-float-label {
-  font-size: 0.6rem;
+.hero-badge-author {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--carbon-60);
+}
+
+/* ─── PROBLEMA ─── */
+.problema {
+  background: var(--carbon);
+  color: var(--crema);
+  padding: 7rem 5rem;
+}
+
+.problema-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--slate-mid);
-  font-weight: 500;
-}
-
-/* ────────── MARQUEE ────────── */
-.marquee-strip {
-  background: var(--ink);
-  padding: 12px 0;
-  overflow: hidden;
-  display: flex;
-}
-
-.marquee-track {
-  display: flex;
-  white-space: nowrap;
-  animation: marquee 28s linear infinite;
-}
-
-.marquee-item {
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(250,248,243,0.5);
-  font-weight: 500;
-  padding: 0 36px;
-  flex-shrink: 0;
+  color: var(--arena);
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 0.75rem;
 }
-
-.marquee-item::after {
-  content: '◆';
-  font-size: 0.28rem;
-  color: var(--gold);
-  opacity: 0.6;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ────────── SECTION BASE ────────── */
-.section-eyebrow {
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.section-eyebrow::before {
+.section-label::before {
   content: '';
-  width: 18px; height: 1px;
-  background: var(--gold);
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--arena);
+}
+
+.problema h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--crema);
+  max-width: 38rem;
+  margin-bottom: 1.5rem;
+}
+
+.problema-sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(250,247,242,0.55);
+  max-width: 34rem;
+  margin-bottom: 5rem;
+}
+
+.problema-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(250,247,242,0.1);
+}
+
+.problema-item {
+  padding: 3rem 2.5rem 3rem 0;
+  border-right: 1px solid rgba(250,247,242,0.1);
+}
+.problema-item:last-child { border-right: none; padding-right: 0; }
+.problema-item:not(:first-child) { padding-left: 2.5rem; }
+
+.problema-num {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(196,168,130,0.25);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.problema-item h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--crema);
+  margin-bottom: 0.75rem;
+}
+
+.problema-item p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(250,247,242,0.5);
+  margin-bottom: 1.25rem;
+}
+
+.problema-item .detail {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--arena);
+  border-top: 1px solid rgba(196,168,130,0.25);
+  padding-top: 1rem;
+}
+
+/* ─── TRATAMIENTOS ─── */
+.tratamientos {
+  padding: 7rem 5rem;
+  max-width: 100%;
+}
+
+.tratamientos-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  gap: 2rem;
+}
+
+.section-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--terracota-dark);
+  max-width: 26rem;
+}
+
+.section-header-link {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  text-decoration: none;
+  border-bottom: 1px solid var(--arena-light);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  grid-template-rows: auto auto;
+  gap: 1.25rem;
+}
+
+.bento-main {
+  grid-row: span 2;
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  background: var(--carbon);
+}
+
+.bento-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  display: block;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.7s ease, opacity 0.3s;
+}
+.bento-main:hover img { transform: scale(1.04); opacity: 0.45; }
+
+.bento-main-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.bento-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--carbon);
+  background: var(--arena);
+  padding: 0.35rem 0.85rem;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+.bento-main h3 {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--crema);
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.bento-main p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(250,247,242,0.7);
+  max-width: 22rem;
+  margin-bottom: 1.5rem;
+}
+
+.bento-link {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--crema);
+  text-decoration: none;
+  border-bottom: 1px solid var(--arena);
+  padding-bottom: 2px;
+  align-self: flex-start;
+  transition: color 0.2s;
+}
+.bento-link:hover { color: var(--arena); }
+
+.bento-card {
+  background: var(--crema-dark);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--carbon-10);
+}
+
+.bento-card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1.5rem;
   opacity: 0.5;
 }
 
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  letter-spacing: -0.02em;
-  line-height: 1.08;
-  color: var(--ink);
+.bento-card h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--terracota-dark);
+  margin-bottom: 0.5rem;
 }
 
-.section-title em { font-style: italic; }
-
-/* ────────── SERVICIOS ────────── */
-#servicios {
-  padding: 140px 80px;
-  background: var(--paper-2);
-  position: relative;
-  overflow: hidden;
-}
-
-#servicios::before {
-  content: 'tratamientos';
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 16rem;
-  font-weight: 200;
-  color: rgba(26,28,24,0.03);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
-.s-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 80px;
-}
-
-.s-subtitle {
-  max-width: 280px;
+.bento-card p {
   font-size: 0.85rem;
-  line-height: 1.75;
-  color: var(--slate-mid);
   font-weight: 300;
-  font-style: italic;
-  text-align: right;
+  line-height: 1.65;
+  color: var(--carbon-60);
+  margin-bottom: 1.5rem;
+  flex: 1;
 }
 
-/* Grid de servicios */
-.servicios-grid {
+.bento-card-link {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  text-decoration: none;
+}
+
+/* ─── QUIÉNES SOMOS ─── */
+.quienes {
+  background: var(--crema-dark);
+  padding: 7rem 5rem;
+}
+
+.quienes-inner {
+  max-width: 72rem;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--paper-3);
+  grid-template-columns: 5fr 7fr;
+  gap: 6rem;
+  align-items: center;
 }
 
-.s-card {
-  padding: 52px 44px;
-  border-right: 1px solid var(--paper-3);
+.quienes-img-wrap {
   position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
-  background: var(--paper);
 }
 
-.s-card:last-child { border-right: none; }
+.quienes-img-wrap img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.7) contrast(1.05);
+}
 
-/* Fondo que aparece en hover */
-.s-card::before {
-  content: '';
+.quienes-img-stamp {
   position: absolute;
-  inset: 0;
-  background: var(--ink);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.55s cubic-bezier(0.23,1,0.32,1);
-  z-index: 0;
-}
-
-.s-card:hover::before { transform: scaleY(1); }
-
-.s-card-inner {
-  position: relative;
-  z-index: 1;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  width: 7rem;
+  height: 7rem;
+  background: var(--terracota);
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-
-.s-card-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 4.5rem;
-  font-weight: 200;
-  color: rgba(26,28,24,0.07);
-  line-height: 1;
-  margin-bottom: 28px;
-  transition: color 0.5s;
-}
-
-.s-card:hover .s-card-num { color: rgba(250,248,243,0.06); }
-
-.s-card-nombre {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-bottom: 16px;
-  transition: color 0.4s;
-}
-
-.s-card:hover .s-card-nombre { color: var(--paper); }
-
-.s-card-desc {
-  font-size: 0.83rem;
-  line-height: 1.72;
-  color: var(--slate-mid);
-  font-weight: 300;
-  flex-grow: 1;
-  margin-bottom: 36px;
-  transition: color 0.4s;
-}
-
-.s-card:hover .s-card-desc { color: rgba(250,248,243,0.5); }
-
-.s-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 24px;
-  border-top: 1px solid rgba(232,228,219,0.5);
-  transition: border-color 0.4s;
-}
-
-.s-card:hover .s-card-footer { border-top-color: rgba(250,248,243,0.1); }
-
-.s-card-precio {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: var(--gold);
-  transition: color 0.4s;
-}
-
-.s-card:hover .s-card-precio { color: var(--gold); }
-
-.s-card-arrow {
-  width: 32px; height: 32px;
-  border: 1px solid rgba(232,228,219,0.5);
-  border-radius: 50%;
-  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
-  color: var(--slate-mid);
-  transition: all 0.4s;
+  text-align: center;
 }
-
-.s-card:hover .s-card-arrow {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--ink);
-  transform: rotate(45deg);
-}
-
-/* ────────── RESULTADOS ────────── */
-#resultados {
-  padding: 140px 80px;
-  background: var(--paper);
-}
-
-.resultados-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  margin-top: 80px;
-}
-
-.resultado-item {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 3/4;
-}
-
-.resultado-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.2) contrast(1.06);
-  transition: transform 1s cubic-bezier(0.23,1,0.32,1), filter 1s;
-}
-
-.resultado-item:hover img {
-  transform: scale(1.05);
-  filter: grayscale(0) contrast(1.03);
-}
-
-.resultado-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(26,28,24,0.6) 0%, transparent 50%);
-  transition: opacity 0.5s;
-}
-
-.resultado-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 32px;
-}
-
-.resultado-caso {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.3rem;
+.quienes-img-stamp span:first-child {
+  font-family: var(--serif);
+  font-size: 2rem;
   font-weight: 300;
-  color: var(--paper);
-  margin-bottom: 8px;
-}
-
-.resultado-tags {
-  display: flex;
-  gap: 8px;
-}
-
-.resultado-tag {
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 5px 10px;
-  border: 1px solid rgba(250,248,243,0.3);
-  color: rgba(250,248,243,0.7);
-}
-
-.resultado-tag-gold {
-  background: rgba(184,154,94,0.2);
-  border-color: rgba(184,154,94,0.4);
-  color: var(--gold);
-}
-
-/* Testimonios debajo del grid */
-.testimonios-strip {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  margin-top: 3px;
-}
-
-.testimonio-card {
-  background: var(--paper-2);
-  padding: 36px 40px;
-  border-top: 2px solid transparent;
-  transition: border-top-color 0.3s;
-}
-
-.testimonio-card:hover { border-top-color: var(--gold); }
-
-.testimonio-comilla {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem;
-  font-weight: 300;
-  color: var(--gold);
-  opacity: 0.4;
-  line-height: 0.8;
-  margin-bottom: 12px;
-}
-
-.testimonio-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--slate);
-  font-weight: 300;
-  margin-bottom: 20px;
-}
-
-.testimonio-autor {
-  font-size: 0.6rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--slate-mid);
-  font-weight: 600;
-}
-
-/* ────────── EXPERIENCIA ────────── */
-#experiencia {
-  padding: 140px 80px;
-  background: var(--ink);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-#experiencia::before {
-  content: '01\A 02\A 03';
-  white-space: pre;
-  position: absolute;
-  right: 50%;
-  top: 60px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 18rem;
-  font-weight: 200;
-  color: rgba(250,248,243,0.02);
+  color: var(--crema);
   line-height: 1;
-  pointer-events: none;
+}
+.quienes-img-stamp span:last-child {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(250,247,242,0.7);
 }
 
-.exp-text .section-eyebrow { color: rgba(184,154,94,0.6); }
-.exp-title {
-  font-family: 'Cormorant Garamond', serif;
+.quienes-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 300;
-  font-size: clamp(2.2rem, 3.5vw, 3.8rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--paper);
-  margin-bottom: 64px;
+  line-height: 1.15;
+  color: var(--terracota-dark);
+  margin-bottom: 1.5rem;
 }
 
-.exp-title em { font-style: italic; color: rgba(250,248,243,0.55); }
+.quienes-content p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--carbon-60);
+  margin-bottom: 1rem;
+}
 
-.pasos {
+.quienes-content p strong {
+  font-weight: 500;
+  color: var(--carbon);
+}
+
+.quienes-credenciales {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--carbon-10);
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0.75rem;
 }
 
-.paso {
+.credencial {
   display: flex;
-  gap: 28px;
-  padding: 32px 0;
-  border-top: 1px solid rgba(250,248,243,0.08);
-  transition: all 0.35s;
-}
-
-.paso:last-child { border-bottom: 1px solid rgba(250,248,243,0.08); }
-.paso:hover { padding-left: 8px; }
-
-.paso-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 2.5rem;
-  font-weight: 200;
-  color: rgba(184,154,94,0.35);
-  line-height: 1;
-  flex-shrink: 0;
-  width: 48px;
-  transition: color 0.35s;
-}
-
-.paso:hover .paso-num { color: var(--gold); }
-
-.paso-content {}
-
-.paso-titulo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  color: var(--paper);
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--terracota-dark);
 }
 
-.paso-desc {
-  font-size: 0.83rem;
-  line-height: 1.72;
-  color: rgba(250,248,243,0.4);
+.credencial::before {
+  content: '';
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--arena);
+  flex-shrink: 0;
+}
+
+.quienes-callout {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  border-left: 3px solid var(--terracota);
+  background: var(--crema);
+}
+
+.quienes-callout p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
   font-weight: 300;
+  line-height: 1.5;
+  color: var(--terracota-dark);
+  margin-bottom: 0;
 }
 
-/* Foto experiencia */
-.exp-imagen {
-  position: relative;
-  overflow: hidden;
+/* ─── RESULTADOS ─── */
+.resultados {
+  padding: 7rem 5rem;
 }
 
-.exp-imagen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.3) contrast(1.08) brightness(0.85);
-  aspect-ratio: 2/3;
-  transition: transform 1.2s cubic-bezier(0.23,1,0.32,1);
+.resultados-inner {
+  max-width: 72rem;
+  margin: 0 auto;
 }
 
-.exp-imagen:hover img { transform: scale(1.04); }
-
-.exp-imagen-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(26,28,24,0.4) 0%, transparent 60%);
-  pointer-events: none;
+.resultados-header {
+  margin-bottom: 5rem;
 }
 
-/* ────────── FAQ ────────── */
-#faq {
-  padding: 140px 80px;
-  background: var(--paper-2);
+.resultados-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--terracota-dark);
+  margin-bottom: 0.75rem;
 }
 
-.faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 100px;
-  align-items: start;
-  margin-top: 80px;
-}
-
-.faq-left-desc {
+.resultados-header p {
   font-size: 0.88rem;
-  line-height: 1.8;
-  color: var(--slate-mid);
   font-weight: 300;
-  margin-top: 20px;
+  color: var(--carbon-60);
+  font-style: italic;
 }
 
-.faq-items {}
+.caso {
+  display: grid;
+  grid-template-columns: 4rem 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem 0;
+  border-top: 1px solid var(--carbon-10);
+}
+.caso:last-child { border-bottom: 1px solid var(--carbon-10); }
+
+.caso-num {
+  font-family: var(--serif);
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--arena-light);
+  line-height: 1;
+}
+
+.caso-info h3 {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--terracota-dark);
+  margin-bottom: 0.75rem;
+}
+
+.caso-info p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--carbon-60);
+  margin-bottom: 1rem;
+}
+
+.caso-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.caso-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  background: rgba(125,66,50,0.08);
+  padding: 0.3rem 0.75rem;
+}
+
+.caso-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.caso-imgs img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: saturate(0.85);
+}
+
+.caso-imgs-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--carbon-30);
+  text-align: center;
+  padding-top: 0.35rem;
+}
+
+/* ─── FAQ ─── */
+.faq {
+  background: var(--carbon);
+  padding: 7rem 5rem;
+}
+
+.faq-inner {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.faq h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--crema);
+  margin-bottom: 4rem;
+}
 
 .faq-item {
-  border-top: 1px solid var(--paper-3);
+  border-top: 1px solid rgba(250,247,242,0.1);
 }
+.faq-item:last-child { border-bottom: 1px solid rgba(250,247,242,0.1); }
 
-.faq-item:last-child { border-bottom: 1px solid var(--paper-3); }
-
-.faq-summary {
+.faq-item summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 0;
+  padding: 1.75rem 0;
   cursor: pointer;
   list-style: none;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  transition: color 0.25s;
-  user-select: none;
+  gap: 2rem;
 }
 
-.faq-summary:hover { color: var(--gold-dim); }
-.faq-summary::-webkit-details-marker { display: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-q {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--crema);
+  line-height: 1.3;
+}
 
 .faq-icon {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.6rem;
-  font-weight: 200;
-  color: var(--gold);
-  transition: transform 0.35s cubic-bezier(0.23,1,0.32,1);
-  line-height: 1;
-}
-
-details[open] .faq-icon { transform: rotate(45deg); }
-
-.faq-answer {
-  font-size: 0.85rem;
-  line-height: 1.8;
-  color: var(--slate-mid);
-  font-weight: 300;
-  padding-bottom: 24px;
-  padding-right: 40px;
-}
-
-/* ────────── CTA FINAL ────────── */
-#cta {
-  padding: 140px 80px;
-  background: var(--paper);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(250,247,242,0.2);
+  display: flex;
   align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.faq-item[open] .faq-icon { background: var(--terracota); border-color: var(--terracota); }
+
+.faq-icon svg { width: 12px; height: 12px; stroke: var(--crema); stroke-width: 2; fill: none; }
+.faq-item[open] .faq-icon svg { transform: rotate(45deg); }
+.faq-icon svg { transition: transform 0.25s; }
+
+.faq-a {
+  padding: 0 0 1.75rem;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(250,247,242,0.5);
+}
+
+/* ─── CTA ─── */
+.cta-section {
   position: relative;
+  padding: 8rem 5rem;
+  background: var(--terracota-dark);
   overflow: hidden;
 }
 
-#cta::before {
+.cta-section::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 80% 50%, rgba(184,154,94,0.06) 0%, transparent 60%);
-  pointer-events: none;
+  top: -8rem;
+  right: -8rem;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  border: 1px solid rgba(250,247,242,0.07);
+}
+.cta-section::after {
+  content: '';
+  position: absolute;
+  top: -4rem;
+  right: -4rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  border: 1px solid rgba(250,247,242,0.07);
 }
 
-.cta-left .section-eyebrow { margin-bottom: 20px; }
+.cta-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
 
-.cta-h2 {
-  font-family: 'Cormorant Garamond', serif;
+.cta-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
   font-weight: 300;
-  font-size: clamp(3rem, 5vw, 5.5rem);
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: 32px;
+  color: var(--crema);
+  line-height: 1.1;
+  max-width: 28rem;
+  margin-bottom: 1.5rem;
 }
 
-.cta-h2 em { font-style: italic; color: var(--sage-dim); }
-
-.cta-desc {
-  font-size: 0.92rem;
+.cta-inner p {
+  font-size: 0.9rem;
+  font-weight: 300;
   line-height: 1.8;
-  color: var(--slate-mid);
-  font-weight: 300;
-  max-width: 380px;
+  color: rgba(250,247,242,0.6);
+  max-width: 24rem;
+  margin-bottom: 3rem;
 }
 
-.cta-right {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  justify-content: center;
+.cta-inner p strong {
+  color: rgba(250,247,242,0.85);
+  font-weight: 400;
 }
 
-.cta-dato {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 28px 32px;
-  background: var(--paper-2);
-  border: 1px solid var(--paper-3);
-  transition: all 0.3s;
-}
-
-.cta-dato:hover { border-color: rgba(184,154,94,0.3); background: var(--paper); }
-
-.cta-dato-icono {
-  font-size: 1rem;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.cta-dato-titulo {
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+.btn-cta {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--slate-mid);
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.cta-dato-valor {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-
-.cta-btns {
-  display: flex;
-  gap: 12px;
-  margin-top: 8px;
-}
-
-/* ────────── FOOTER ────────── */
-footer {
-  background: var(--paper-3);
-  padding: 56px 80px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  color: var(--terracota-dark);
+  background: var(--crema);
+  padding: 1.1rem 2.5rem;
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
-  gap: 32px;
-  border-top: 1px solid rgba(26,28,24,0.1);
+  gap: 0.75rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-cta:hover { background: var(--arena-light); }
+.btn-cta:active { transform: scale(0.98); }
+
+.btn-cta-icon {
+  width: 1rem;
+  height: 1rem;
 }
 
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
+.cta-meta {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
   font-weight: 300;
-  font-size: 1rem;
-  color: var(--ink);
-  letter-spacing: 0.04em;
-  text-decoration: none;
+  letter-spacing: 0.05em;
+  color: rgba(250,247,242,0.35);
 }
 
-.footer-links {
+/* ─── FOOTER ─── */
+footer {
+  background: var(--carbon);
+  padding: 4rem 5rem 3rem;
+  border-top: 1px solid rgba(250,247,242,0.06);
+}
+
+.footer-grid {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(250,247,242,0.06);
+  margin-bottom: 2rem;
+}
+
+.footer-brand-name {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--crema);
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand-desc {
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(250,247,242,0.4);
+  max-width: 18rem;
+}
+
+.footer-col h4 {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--arena);
+  margin-bottom: 1.25rem;
+}
+
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+.footer-col ul a {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(250,247,242,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--crema); }
+
+.footer-col address { font-style: normal; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col address p {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(250,247,242,0.4);
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  max-width: 72rem;
+  margin: 0 auto;
   display: flex;
-  gap: 32px;
-  list-style: none;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.footer-links a {
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(26,28,24,0.4);
+.footer-bottom p {
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: rgba(250,247,242,0.25);
+  letter-spacing: 0.04em;
+}
+
+/* ─── WHATSAPP FAB ─── */
+.wa-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 200;
+  background: #25D366;
+  color: white;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.25s;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.footer-links a:hover { color: var(--gold-dim); }
-
-.footer-right {
-  text-align: right;
+.wa-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.4);
 }
+.wa-fab:active { transform: scale(0.97); }
 
-.footer-copy {
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(26,28,24,0.3);
-}
+.wa-fab svg { width: 18px; height: 18px; fill: white; flex-shrink: 0; }
 
-.footer-credit {
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(26,28,24,0.25);
-  margin-top: 4px;
-}
-
-.footer-credit a { color: var(--gold-dim); text-decoration: none; opacity: 0.8; }
-.footer-credit a:hover { opacity: 1; }
-
-/* ────────── ANIMACIONES ────────── */
+/* ─── ANIMACIONES ─── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.hero-eyebrow { animation: fadeUp 0.8s 0.15s ease both; }
-.hero-h1      { animation: fadeUp 0.9s 0.28s ease both; }
-.hero-desc    { animation: fadeUp 0.8s 0.4s ease both; }
-.hero-btns    { animation: fadeUp 0.8s 0.5s ease both; }
-.hero-stats   { animation: fadeUp 0.8s 0.6s ease both; }
-.hero-right   { animation: fadeUp 1s 0.1s ease both; }
+.hero-eyebrow { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+.hero-title   { animation: fadeUp 0.6s ease both; animation-delay: 0.25s; }
+.hero-sub     { animation: fadeUp 0.6s ease both; animation-delay: 0.4s; }
+.hero-actions { animation: fadeUp 0.6s ease both; animation-delay: 0.55s; }
+.hero-img-wrap{ animation: fadeUp 0.8s ease both; animation-delay: 0.2s; }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.85s cubic-bezier(0.23,1,0.32,1),
-              transform 0.85s cubic-bezier(0.23,1,0.32,1);
-}
-
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.d1 { transition-delay: 0.1s; }
-.d2 { transition-delay: 0.22s; }
-.d3 { transition-delay: 0.34s; }
-
-/* ────────── RESPONSIVE ────────── */
-@media (max-width: 1024px) {
-  nav { padding: 0 28px; }
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
 
-  .hero { grid-template-columns: 1fr; }
-  .hero::after { display: none; }
-  .hero-right { display: none; }
-  .hero-left { padding: 60px 28px 72px; }
-  .hero-vol { left: 28px; top: 80px; }
-  .hero-stats { gap: 28px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-img-wrap { order: -1; height: 55vw; }
+  .hero-content { padding: 3rem 1.5rem 4rem; }
+  .hero-badge { left: 1rem; bottom: -2rem; }
 
-  #servicios, #resultados, #faq, #cta { padding: 80px 28px; }
-  .s-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .s-subtitle { text-align: left; }
-  .servicios-grid { grid-template-columns: 1fr; }
-  .s-card { border-right: none; border-bottom: 1px solid var(--paper-3); }
-  .s-card:last-child { border-bottom: none; }
+  .problema { padding: 5rem 1.5rem; }
+  .problema-grid { grid-template-columns: 1fr; }
+  .problema-item { border-right: none; padding: 2rem 0; border-top: 1px solid rgba(250,247,242,0.1); }
+  .problema-item:first-child { border-top: none; }
+  .problema-item:not(:first-child) { padding-left: 0; }
 
-  .resultados-grid { grid-template-columns: 1fr; }
-  .testimonios-strip { grid-template-columns: 1fr; }
+  .tratamientos { padding: 5rem 1.5rem; }
+  .bento { grid-template-columns: 1fr; }
+  .bento-main { min-height: 400px; grid-row: auto; }
 
-  #experiencia { grid-template-columns: 1fr; padding: 80px 28px; gap: 48px; }
-  .faq-grid { grid-template-columns: 1fr; gap: 40px; }
-  #cta { grid-template-columns: 1fr; gap: 48px; padding: 80px 28px; }
+  .quienes { padding: 5rem 1.5rem; }
+  .quienes-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .quienes-img-stamp { right: 1rem; }
 
-  footer { grid-template-columns: 1fr; text-align: center; padding: 40px 28px; }
-  .footer-links { flex-wrap: wrap; justify-content: center; }
-  .footer-right { text-align: center; }
+  .resultados { padding: 5rem 1.5rem; }
+  .caso { grid-template-columns: 1fr; gap: 1.5rem; }
+  .caso-num { display: none; }
+
+  .faq { padding: 5rem 1.5rem; }
+
+  .cta-section { padding: 5rem 1.5rem; }
+
+  footer { padding: 3rem 1.5rem 2rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+
+  .section-header { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="navbar">
-  <a class="nav-logo" href="#">Estética Editorial</a>
+<nav>
+  <a href="#" class="nav-logo">Clínica Resistencia</a>
   <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#resultados">Resultados</a></li>
-    <li><a href="#experiencia">Experiencia</a></li>
-    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#tratamientos">Tratamientos</a></li>
+    <li><a href="#quienes-somos">Quiénes somos</a></li>
+    <li><a href="#resultados">Antes y después</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <a class="nav-cta" href="#cta">Agendar turno</a>
+  <a href="https://wa.me/543620000000" class="nav-cta">Escribinos</a>
+  <button class="nav-hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-
-  <div class="hero-left">
-    <div class="hero-vol">Cosmetología · Buenos Aires · Vol. I</div>
-
-    <span class="hero-eyebrow">Cuidado Consciente</span>
-
-    <h1 class="hero-h1">
-      Ciencia.<br/>
-      Calma.<br/>
-      <em>Resultados reales.</em>
+<header class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Medicina Estética · Resistencia, Chaco</p>
+    <h1 class="hero-title">
+      Tu cara en manos<br/>de <em>médicos.</em><br/>En Resistencia.
     </h1>
-
-    <p class="hero-desc">
-      Tratamientos personalizados que priorizan la salud de tu barrera cutánea. Nada genérico. Un enfoque boutique con respaldo dermatológico.
+    <p class="hero-sub">
+      Armonización facial, bioestimuladores y tratamientos corporales con médicos matriculados. Primera consulta gratuita, sin compromiso.
     </p>
-
-    <div class="hero-btns">
-      <a class="btn-wa" href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        Reservar turno
-      </a>
-      <a class="btn-primary" href="#servicios">Ver tratamientos →</a>
-    </div>
-
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">12+</div>
-        <div class="hero-stat-label">Años de experiencia</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">500+</div>
-        <div class="hero-stat-label">Pacientes acompañadas</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">3</div>
-        <div class="hero-stat-label">Tratamientos de autor</div>
-      </div>
+    <div class="hero-actions">
+      <a href="https://wa.me/543620000000" class="btn-primary">Consultá sin cargo</a>
+      <a href="#tratamientos" class="btn-ghost">Ver tratamientos</a>
     </div>
   </div>
-
-  <div class="hero-right">
-    <img
-      src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=85"
-      alt="Gabinete Estética Editorial — tratamiento facial"
-    />
-    <div class="hero-right-overlay"></div>
-    <div class="hero-float">
-      <div class="hero-float-num">75'</div>
-      <div class="hero-float-label">Duración por sesión</div>
+  <div class="hero-img-wrap">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS5tkE498POirc08uBHXOOIH6xgch7DYO55bwI5oiuBzrR7B49uoXShO9vuaqQciygH4a_DXkT0cQSYqFYCw-G_2v_Z__xF6jJ23vlsx2WmqdLbRDgic6lYrN-H4PwOhrX3HXx9Q3UTbQLLuIGChHPE4hWYOyuQYzvdECxLF-T-EaYMrnCJeiKG4GghiieZMjRckTkXh3LfSYWyf1f9Vzw1XFIPaA2haZjgbhlLEvSz5XUNDrnk-9q0cABMLk2NuQE2uDoQK7dMIo" alt="Mujer con piel sana y luminosa"/>
+    <div class="hero-badge">
+      <p class="hero-badge-stars">★★★★★</p>
+      <p class="hero-badge-quote">"Me explicaron todo antes de tocarme. Sigo siendo yo, pero más fresca."</p>
+      <p class="hero-badge-author">— Valeria, Resistencia</p>
     </div>
   </div>
+</header>
 
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item">Hidratación profunda</span>
-    <span class="marquee-item">Peeling de estación</span>
-    <span class="marquee-item">Limpieza editorial</span>
-    <span class="marquee-item">Protocolo personalizado</span>
-    <span class="marquee-item">Buenos Aires</span>
-    <span class="marquee-item">Hidratación profunda</span>
-    <span class="marquee-item">Peeling de estación</span>
-    <span class="marquee-item">Limpieza editorial</span>
-    <span class="marquee-item">Protocolo personalizado</span>
-    <span class="marquee-item">Buenos Aires</span>
-  </div>
-</div>
-
-<!-- SERVICIOS -->
-<section id="servicios">
-  <div class="s-header reveal">
-    <div>
-      <p class="section-eyebrow">Menú 2025</p>
-      <h2 class="section-title">Tratamientos<br/>de <em>autor</em></h2>
-    </div>
-    <p class="s-subtitle">Cada sesión se diseña según el estado actual de tu piel. No existen recetas genéricas.</p>
-  </div>
-
-  <div class="servicios-grid">
-
-    <div class="s-card reveal d1">
-      <div class="s-card-inner">
-        <div class="s-card-num">01</div>
-        <h3 class="s-card-nombre">Hidratación Profunda</h3>
-        <p class="s-card-desc">Recuperación de la barrera hidrolipídica con activos biomiméticos y ácido hialurónico de distintos pesos moleculares. Para pieles secas, deshidratadas o sensibilizadas.</p>
-        <div class="s-card-footer">
-          <span class="s-card-precio">$12.500</span>
-          <div class="s-card-arrow">→</div>
-        </div>
+<!-- PROBLEMA -->
+<section class="problema">
+  <div class="problema-inner">
+    <p class="section-label">El contexto local</p>
+    <h2>El sol del Chaco y los años le pasan factura. Tiene solución.</h2>
+    <p class="problema-sub">El calor y la exposición constante aceleran el fotoenvejecimiento. Manchas, pérdida de volumen y flacidez son las tres consultas más frecuentes que atendemos. Las tres tienen tratamiento.</p>
+    <div class="problema-grid">
+      <div class="problema-item">
+        <div class="problema-num">01</div>
+        <h3>Manchas</h3>
+        <p>Melasma y lentigos solares por años de exposición sin protección. Tratamiento con peeling médico + despigmentantes específicos.</p>
+        <p class="detail">Resultados visibles desde la 3ª sesión</p>
       </div>
-    </div>
-
-    <div class="s-card reveal d2">
-      <div class="s-card-inner">
-        <div class="s-card-num">02</div>
-        <h3 class="s-card-nombre">Peeling de Estación</h3>
-        <p class="s-card-desc">Renovación celular controlada con ácidos frutales de concentración graduada. Indicado para manchas, poros dilatados y textura irregular. Incluye protocolo post-tratamiento.</p>
-        <div class="s-card-footer">
-          <span class="s-card-precio">$15.000</span>
-          <div class="s-card-arrow">→</div>
-        </div>
+      <div class="problema-item">
+        <div class="problema-num">02</div>
+        <h3>Pérdida de volumen</h3>
+        <p>Surcos, ojeras y caída de pómulos. Relleno con ácido hialurónico en zonas específicas según tu anatomía.</p>
+        <p class="detail">Duración: 12 a 18 meses</p>
       </div>
-    </div>
-
-    <div class="s-card reveal d3">
-      <div class="s-card-inner">
-        <div class="s-card-num">03</div>
-        <h3 class="s-card-nombre">Limpieza Editorial</h3>
-        <p class="s-card-desc">Extracción manual meticulosa combinada con alta frecuencia y máscara botánica calmante. El tratamiento clásico, ejecutado con criterio científico y tiempo real.</p>
-        <div class="s-card-footer">
-          <span class="s-card-precio">$10.800</span>
-          <div class="s-card-arrow">→</div>
-        </div>
+      <div class="problema-item">
+        <div class="problema-num">03</div>
+        <h3>Flacidez</h3>
+        <p>Pérdida de firmeza en cara y cuerpo. Radiofrecuencia o HIFU según el caso. Sin cirugía, sin recuperación larga.</p>
+        <p class="detail">Sin cirugía · Sin recuperación</p>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- RESULTADOS + TESTIMONIOS -->
-<section id="resultados">
-  <div class="reveal">
-    <p class="section-eyebrow">Evidencia</p>
-    <h2 class="section-title">Resultados<br/><em>reales</em></h2>
-    <p style="font-size:0.85rem; line-height:1.75; color:var(--slate-mid); font-weight:300; max-width:440px; margin-top:16px;">
-      La constancia es la base de todo cambio visible. Procesos de 3 a 6 meses de acompañamiento personalizado.
-    </p>
-  </div>
-
-  <div class="resultados-grid">
-    <div class="resultado-item reveal d1">
-      <img
-        src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700&q=80"
-        alt="Resultado tratamiento — acné adulto"
-      />
-      <div class="resultado-overlay"></div>
-      <div class="resultado-info">
-        <div class="resultado-caso">Caso: Acné Adulto</div>
-        <div class="resultado-tags">
-          <span class="resultado-tag">Antes · Día 0</span>
-          <span class="resultado-tag resultado-tag-gold">Día 90</span>
-        </div>
-      </div>
-    </div>
-    <div class="resultado-item reveal d2">
-      <img
-        src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=700&q=80"
-        alt="Resultado tratamiento — hiperpigmentación"
-      />
-      <div class="resultado-overlay"></div>
-      <div class="resultado-info">
-        <div class="resultado-caso">Caso: Hiperpigmentación</div>
-        <div class="resultado-tags">
-          <span class="resultado-tag">Antes · Día 0</span>
-          <span class="resultado-tag resultado-tag-gold">Día 120</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="testimonios-strip">
-    <div class="testimonio-card reveal d1">
-      <div class="testimonio-comilla">"</div>
-      <p class="testimonio-text">Es la primera vez que alguien se toma el tiempo de explicarme por qué mi piel reacciona de cierta forma. Un espacio de paz total en medio de la ciudad.</p>
-      <p class="testimonio-autor">— Martina S., Palermo</p>
-    </div>
-    <div class="testimonio-card reveal d2">
-      <div class="testimonio-comilla">"</div>
-      <p class="testimonio-text">Los productos que me recomendó cambiaron mi rutina para siempre. Siento la cara luminosa y descansada, incluso sin maquillaje. Volvería todas las semanas.</p>
-      <p class="testimonio-autor">— Sofía G., Recoleta</p>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCIA -->
-<section id="experiencia">
-  <div class="exp-text">
-    <p class="section-eyebrow reveal">El proceso</p>
-    <h2 class="exp-title reveal">Cómo es la<br/>experiencia <em>Editorial</em></h2>
-
-    <div class="pasos">
-      <div class="paso reveal d1">
-        <div class="paso-num">01</div>
-        <div class="paso-content">
-          <h4 class="paso-titulo">Entrevista inicial</h4>
-          <p class="paso-desc">Analizamos tu estilo de vida, productos actuales y objetivos. No hay dos pieles iguales y ninguna sesión se repite igual.</p>
+<!-- TRATAMIENTOS -->
+<section class="tratamientos" id="tratamientos">
+  <div class="tratamientos-inner">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Procedimientos</p>
+        <h2>Lo que hacemos y cómo lo hacemos</h2>
+      </div>
+      <a href="https://wa.me/543620000000" class="section-header-link">Ver todos →</a>
+    </div>
+    <div class="bento">
+      <div class="bento-main">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkGZyRgQu6DFseEfa2RiqHQsj5yNSxcaeYlshVS2AViE4cJ21W_8oxftQK1pzmGtnFJn8pKfT7ecopXIed0mORYiS_sEDn_iK3kLS6iLSfGqUfB2EHuUIkdvAuASiB7LuO7TgECpW3MK7l-pwfMUBo55cdcwIz58UVU7zGdCxjYdjV3nWL20o0YjUJHsgjw" alt="Procedimiento estético médico"/>
+        <div class="bento-main-content">
+          <span class="bento-badge">Más solicitado</span>
+          <h3>Armonización Facial</h3>
+          <p>Ácido hialurónico y botox aplicados con criterio médico. Buscamos que te veas descansada — no operada. Resultado que solo vos y nosotros sabemos qué hicimos.</p>
+          <a href="https://wa.me/543620000000" class="bento-link">Consultar por WhatsApp</a>
         </div>
       </div>
-      <div class="paso reveal d2">
-        <div class="paso-num">02</div>
-        <div class="paso-content">
-          <h4 class="paso-titulo">Tratamiento en gabinete</h4>
-          <p class="paso-desc">Una sesión de 75 minutos diseñada exclusivamente para vos, en un entorno de calma absoluta y sin apuros.</p>
-        </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="#7D4232" stroke-width="1.5"><path d="M12 3c-1.2 5.4-5 8.4-9 9.2 0 5 3.8 8.5 9 8.8 5.2-.3 9-3.8 9-8.8-4-.8-7.8-3.8-9-9.2z"/></svg>
+        <h3>Skincare Médico</h3>
+        <p>Peeling químico, mesoterapia y protocolos para manchas. Adaptados a tu tipo de piel y al daño solar acumulado.</p>
+        <a href="https://wa.me/543620000000" class="bento-card-link">Consultá →</a>
       </div>
-      <div class="paso reveal d3">
-        <div class="paso-num">03</div>
-        <div class="paso-content">
-          <h4 class="paso-titulo">Seguimiento post-sesión</h4>
-          <p class="paso-desc">Te llevás una hoja de ruta para casa y acceso directo por WhatsApp para dudas. El proceso no termina al salir del gabinete.</p>
-        </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="#7D4232" stroke-width="1.5"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg>
+        <h3>Cuerpo</h3>
+        <p>Radiofrecuencia y HIFU para flacidez corporal. Sin cirugía. Resultados visibles desde la segunda sesión.</p>
+        <a href="https://wa.me/543620000000" class="bento-card-link">Consultá →</a>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="exp-imagen reveal">
-    <img
-      src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&q=85"
-      alt="Gabinete Estética Editorial"
-    />
-    <div class="exp-imagen-overlay"></div>
+<!-- QUIÉNES SOMOS -->
+<section class="quienes" id="quienes-somos">
+  <div class="quienes-inner">
+    <div class="quienes-img-wrap">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Ah9PFAhHFOYwcIcW019pEHcKszXIq9jGYZNc1kScHPtwVcOGHOPFP3sqN7T6VcVQpY7KQly6kCmSVM5b1E2r9IK_3z8KDhGYxHEL9I87FtLXcNnQwBh9ELm6KtABJQ" alt="Dra. en consultorio"/>
+      <div class="quienes-img-stamp">
+        <span>8+</span>
+        <span>años en Rcia.</span>
+      </div>
+    </div>
+    <div class="quienes-content">
+      <p class="section-label">Quiénes somos</p>
+      <h2>Ética médica antes que estética comercial.</h2>
+      <p>Somos <strong>Dra. [Nombre Apellido]</strong>, médica especialista en medicina estética (Mat. Nac. N° XXXXXX). Abrimos esta clínica en Resistencia porque había pocas opciones serias para hacerse algo con respaldo médico real en el Chaco.</p>
+      <p>No delegamos en técnicos ni esteticistas. Te atiende la médica titular, siempre. Más de 1.000 pacientes atendidos desde [año de apertura].</p>
+      <div class="quienes-credenciales">
+        <p class="credencial">Matrícula Nacional N° XXXXXX — verificable en línea</p>
+        <p class="credencial">Habilitación Sanitaria N° XXXX · Min. de Salud Chaco</p>
+        <p class="credencial">Formación en [universidad / institución real]</p>
+      </div>
+      <div class="quienes-callout">
+        <p>La primera consulta es sin cargo. Es el momento donde te evaluamos y te explicamos si el tratamiento es para vos. Sin presión.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="resultados" id="resultados">
+  <div class="resultados-inner">
+    <div class="resultados-header">
+      <p class="section-label">Casos reales</p>
+      <h2>Resultados reales de pacientes de Resistencia</h2>
+      <p>No usamos fotos de stock ni casos de otras clínicas. Todo lo que ves acá fue hecho en este consultorio.</p>
+    </div>
+
+    <div class="caso">
+      <div class="caso-num">01</div>
+      <div class="caso-info">
+        <h3>Tratamiento de ojeras</h3>
+        <p>Recuperación de la mirada cansada con ácido hialurónico específico para la zona periocular. Una sesión. Sin recuperación.</p>
+        <div class="caso-meta">
+          <span class="caso-tag">1 sesión</span>
+          <span class="caso-tag">Resultados inmediatos</span>
+          <span class="caso-tag">Cecilia, 38 — Resistencia</span>
+        </div>
+      </div>
+      <div>
+        <div class="caso-imgs">
+          <div>
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6T8to4x6zJRvQ5aRinK9TLEX3yy5C0llyb4g0MC_vRnD8xc4JvlGYZNc1kScHPtwVcOGHOPFP3sqN7T6VcVQpY7KQly6kCmSVM5b1E2r9IK_3z8KDhGYx0k0mhTkq0IFEUfbbHiVec9Fpd6VdPuY0DxjLi3n4a4EmwmeX7o6IkFdpo3x9lD6InWPUDxNB-EtPG0r9eVfO1ckj8IdISz5HC4GJxa_5eXxN63wjN_0" alt="Antes"/>
+            <p class="caso-imgs-label">Antes</p>
+          </div>
+          <div>
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHhp78ij6ktlqVo6drke6jReXXJEElS84-GdAszxV2f_Nl2KNCeAQgTO2UzvjE4GaMQyn2RPgoB5teY5RtOmLKusds0HHvyJtRAwM8fOCX3kecqGkPkxUYSH9Iil_Anq3qqupzxYKWWSwnlfrwWicztoC73pbhS363v4YnYixHh_Z9FY3164KCbZZ08rHwcOgmAvgcmJiQgruYfyLV6kQrzb39e75EfwkfdfoyHN9ekOYIpSyZqpnMW-n-mzjbPF0JK6ET4rFeV9g" alt="Después"/>
+            <p class="caso-imgs-label">Después</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="caso">
+      <div class="caso-num">02</div>
+      <div class="caso-info">
+        <h3>Rinomodelación sin cirugía</h3>
+        <p>Perfilado nasal con ácido hialurónico. Corrección de caballete y elevación de punta en 30 minutos. Sin anestesia general, sin recuperación.</p>
+        <div class="caso-meta">
+          <span class="caso-tag">30 minutos</span>
+          <span class="caso-tag">Sin cirugía</span>
+          <span class="caso-tag">Laura, 31 — Barranqueras</span>
+        </div>
+      </div>
+      <div>
+        <div class="caso-imgs">
+          <div>
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9MH-AMzViI1NGfl3sHNj6GUYq7btoBhaGKLO7g5bnHndoWaWcs9pKk6SDZvgCcK9hq0Is3TthQ9vQi8tNs2dEBMHTTR4T0cVpEcY9owJ0uLzmzQr4aaBHM1psL-2JML5MpUp2jh9qGXZYx_YEkUVWgP7H0k0mhTkq0IFEUfbbHiVec9Fpd6VdPuY0DxjLi3n4a4EmwmeX7o6IkFdpo3x9lD6InWPUDxNB-EtPG0r9eVfO1ckj8IdISz5HC4GJxa_5eXxN63wjN_0" alt="Antes"/>
+            <p class="caso-imgs-label">Antes</p>
+          </div>
+          <div>
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSbz1-a5dkugAGJLQVd9QILRC6PNQO7GZTpKMqSe3WsGkQbOTWWHLj8qu8NZ4L2Bla1llhHKpAkz4QJCIFzNSC1XT67LXZUVlAJ_AGeZcxUgzCqPBuEQBgdKHKF9QyVig5B0oM3oOznToctEk6Lbz-2Uk4V2O7Y8IQ8ZBKOLayBc1E7f5NKRXQvdgS0O038haN9PEWp0Ly7OW9K0JNrcyuJDZNK4cznV6r5Kx1CLKGy10eovYv3tD4R1h8sh6_Q" alt="Después"/>
+            <p class="caso-imgs-label">Después</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
-  <div class="reveal">
-    <p class="section-eyebrow">Preguntas frecuentes</p>
-    <h2 class="section-title"><em>FAQ</em></h2>
-  </div>
+<section class="faq">
+  <div class="faq-inner">
+    <p class="section-label" style="color: var(--arena);">Preguntas frecuentes</p>
+    <h2>Lo que siempre preguntan antes de escribir</h2>
 
-  <div class="faq-grid">
-    <div class="reveal">
-      <p class="faq-left-desc">
-        Todo lo que necesitás saber antes de tu primera visita. Si tu pregunta no está acá, escribinos por WhatsApp.
-      </p>
-    </div>
+    <details class="faq-item" open>
+      <summary>
+        <span class="faq-q">¿Cuánto cuesta la primera consulta?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <p class="faq-a">La consulta de evaluación es sin cargo y sin compromiso. Ahí te explicamos qué tenés, qué opciones hay y cuánto cuesta cada una. No cobramos para que puedas venir a preguntar tranquila.</p>
+    </details>
 
-    <div class="faq-items reveal d1">
+    <details class="faq-item">
+      <summary>
+        <span class="faq-q">¿Cómo saco turno?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <p class="faq-a">Escribinos por WhatsApp y coordinamos día y horario. Generalmente tenemos disponibilidad para la misma semana. El turno dura entre 30 y 45 minutos.</p>
+    </details>
 
-      <details class="faq-item" open>
-        <summary class="faq-summary">
-          ¿Los tratamientos son dolorosos?
-          <span class="faq-icon">+</span>
-        </summary>
-        <p class="faq-answer">En absoluto. Priorizamos el bienestar en cada paso. En caso de extracciones o peelings, puede sentirse una leve molestia que se controla con técnicas y productos calmantes.</p>
-      </details>
+    <details class="faq-item">
+      <summary>
+        <span class="faq-q">¿Los resultados se van a notar demasiado?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <p class="faq-a">La mayoría de nuestros tratamientos apuntan a resultados naturales. Si no querés que se note que te hiciste algo, te lo decimos antes de empezar — y si no es lo que buscás, te lo decimos también.</p>
+    </details>
 
-      <details class="faq-item">
-        <summary class="faq-summary">
-          ¿Qué marcas de productos usás?
-          <span class="faq-icon">+</span>
-        </summary>
-        <p class="faq-answer">Trabajamos con líneas profesionales nacionales e internacionales: Lidherma, Idraet y laboratorios de autor con altos estándares de pureza y eficacia biológica.</p>
-      </details>
+    <details class="faq-item">
+      <summary>
+        <span class="faq-q">¿Quién me va a atender?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <p class="faq-a">Te atiende directamente la Dra. [Nombre], médica titular con matrícula nacional. No delegamos en técnicos ni esteticistas.</p>
+    </details>
 
-      <details class="faq-item">
-        <summary class="faq-summary">
-          ¿Cuánto tiempo llevan los resultados visibles?
-          <span class="faq-icon">+</span>
-        </summary>
-        <p class="faq-answer">Depende del objetivo. Mejoras de textura e hidratación son visibles desde la primera sesión. Cambios en manchas o acné requieren entre 6 y 12 semanas de protocolo sostenido.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-summary">
-          ¿Cuál es la política de cancelación?
-          <span class="faq-icon">+</span>
-        </summary>
-        <p class="faq-answer">Pedimos avisar con al menos 24 horas de anticipación. Esto nos permite ofrecer ese espacio a otra persona en lista de espera y mantener la calidad del servicio.</p>
-      </details>
-
-    </div>
+    <details class="faq-item">
+      <summary>
+        <span class="faq-q">¿Qué medios de pago aceptan?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <p class="faq-a">Efectivo, transferencia, MercadoPago y tarjetas de crédito con cuotas. Consultanos por planes vigentes.</p>
+    </details>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="cta">
-  <div class="cta-left reveal">
-    <p class="section-eyebrow">Empezá hoy</p>
-    <h2 class="cta-h2">Tu piel<br/>te lo va a<br/><em>agradecer.</em></h2>
-    <p class="cta-desc">Agendá tu primera cita de diagnóstico. Sin compromiso, con toda la atención del mundo.</p>
-  </div>
-
-  <div class="cta-right reveal d1">
-    <div class="cta-dato">
-      <span class="cta-dato-icono">📍</span>
-      <div>
-        <p class="cta-dato-titulo">Ubicación</p>
-        <p class="cta-dato-valor">Buenos Aires, Argentina</p>
-      </div>
-    </div>
-    <div class="cta-dato">
-      <span class="cta-dato-icono">🕐</span>
-      <div>
-        <p class="cta-dato-titulo">Atención</p>
-        <p class="cta-dato-valor">Lunes a Sábados, con turno previo</p>
-      </div>
-    </div>
-    <div class="cta-btns">
-      <a class="btn-wa" href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        WhatsApp directo
-      </a>
-      <a class="btn-primary" href="#">Agendar online →</a>
-    </div>
+<section class="cta-section" id="contacto">
+  <div class="cta-inner">
+    <p class="section-label" style="color: var(--arena-light);">Próximo paso</p>
+    <h2>Escribinos esta semana y te damos turno.</h2>
+    <p>
+      <strong>Primera consulta sin cargo.</strong><br/>
+      Lunes a viernes, 10 a 19 hs.<br/>
+      Juan B. Justo 123, Resistencia — a dos cuadras de la Plaza 25 de Mayo.
+    </p>
+    <a href="https://wa.me/543620000000?text=Hola%2C%20quisiera%20saber%20m%C3%A1s%20y%20sacar%20una%20consulta%20sin%20cargo." class="btn-cta">
+      <svg class="btn-cta-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.466 2 2 6.466 2 11.99c0 1.757.46 3.4 1.264 4.832L2 22l5.282-1.238a9.945 9.945 0 004.708 1.187h.006c5.52 0 9.988-4.466 9.988-9.989C22 6.466 17.514 2 11.99 2z"/></svg>
+      Abrir WhatsApp
+    </a>
+    <p class="cta-meta">+54 362 000-0000 · clinica@ejemplo.com</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <a class="footer-logo" href="#">Estética Editorial</a>
-  <ul class="footer-links">
-    <li><a href="#">Instagram</a></li>
-    <li><a href="#">Privacidad</a></li>
-    <li><a href="#">Turnos</a></li>
-  </ul>
-  <div class="footer-right">
-    <p class="footer-copy">© 2025 · Buenos Aires, Argentina</p>
-    <p class="footer-credit">Diseño <a href="#">nadiaweb_</a></p>
+  <div class="footer-grid">
+    <div>
+      <p class="footer-brand-name">Clínica Resistencia</p>
+      <p class="footer-brand-desc">Medicina estética responsable en el corazón del Chaco. Habilitación Sanitaria N° XXXX — Ministerio de Salud Chaco.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#tratamientos">Tratamientos</a></li>
+        <li><a href="#quienes-somos">Quiénes somos</a></li>
+        <li><a href="#resultados">Antes y después</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <address>
+        <p>Juan B. Justo 123<br/>Resistencia, Chaco</p>
+        <p>+54 362 000-0000</p>
+        <p>Lun–Vie, 10 a 19 hs</p>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Clínica Resistencia. Todos los derechos reservados.</p>
+    <p>Habilitación Sanitaria N° XXXX · Matrícula Nacional N° XXXXXX</p>
   </div>
 </footer>
 
-<script>
-  // Nav on scroll
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 48);
-  });
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/543620000000?text=Hola%2C%20quiero%20consultar%20sin%20cargo." class="wa-fab">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.466 2 2 6.466 2 11.99c0 1.757.46 3.4 1.264 4.832L2 22l5.282-1.238a9.945 9.945 0 004.708 1.187h.006c5.52 0 9.988-4.466 9.988-9.989C22 6.466 17.514 2 11.99 2z"/></svg>
+  Consultá
+</a>
 
-  // Scroll reveal
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
 </body>
 </html>
